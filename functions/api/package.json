@@ -1,0 +1,10 @@
+{
+  "name": "multi-tier-api",
+  "version": "1.0.0",
+  "description": "API for multi-tier application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {}
+}
