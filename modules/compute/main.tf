@@ -18,26 +18,26 @@ resource "google_compute_instance_template" "instance_template" {
     }
   }
 
-  # Use heredoc with proper line endings - this is the key fix
-  metadata_startup_script = <<-"SCRIPT"
-    #!/bin/bash
-    apt-get update
-    apt-get install -y nginx
-    systemctl start nginx
-    systemctl enable nginx
+  # Use heredoc with proper syntax to avoid line ending issues
+  metadata_startup_script = <<EOF
+#!/bin/bash
+apt-get update
+apt-get install -y nginx
+systemctl start nginx
+systemctl enable nginx
 
-    # Simple web server
-    cat > /var/www/html/index.html << 'EOF'
-    <html>
-    <head><title>Multi-Tier App - ${var.environment}</title></head>
-    <body>
-    <h1>Multi-Tier Application</h1>
-    <p>Environment: ${var.environment}</p>
-    <p>Instance: $(hostname)</p>
-    </body>
-    </html>
-    EOF
-  SCRIPT
+# Simple web server
+cat > /var/www/html/index.html <<'WEBEOF'
+<html>
+<head><title>Multi-Tier App - ${var.environment}</title></head>
+<body>
+<h1>Multi-Tier Application</h1>
+<p>Environment: ${var.environment}</p>
+<p>Instance: $(hostname)</p>
+</body>
+</html>
+WEBEOF
+EOF
 
   service_account {
     email  = google_service_account.compute_sa.email
