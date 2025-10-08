@@ -56,3 +56,4 @@ tmp/
 # System files
 ehthumbs.db
 Icon?
+terraform.tfstate
