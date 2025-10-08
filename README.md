@@ -68,7 +68,7 @@ GCP-IaC-Lab/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/GCP-IaC-Lab.git
+   git clone https://github.com/Ravi-kiran-Dev/GCP-IaC-Lab.git
    cd GCP-IaC-Lab
    ```
 
